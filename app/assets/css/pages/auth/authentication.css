@@ -1,0 +1,179 @@
+/* ======================================================
+   authentication.css — ログイン / 会員登録 共通スタイル
+   テーマに準拠（ベージュ × 白 × ブラウン × ゴールド）
+====================================================== */
+
+.authentication-page {
+    background-color: var(--color-bg-base);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* ---------- カード ---------- */
+.authentication-container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--color-white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+    box-sizing: border-box;
+}
+
+/* ---------- タイトル ---------- */
+.page__title {
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    color: var(--text-default);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ---------- フォーム ---------- */
+.authenticate-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.6rem;
+}
+
+.entry__name {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-default);
+}
+
+/* 入力欄：横はみ出し防止版 */
+.input {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius-base);
+    border: 1px solid var(--border-color);
+    background-color: var(--color-bg-light);
+    color: var(--text-default);
+    font-family: var(--font-base);
+    box-sizing: border-box;
+    /* ← これで入力欄が絶対にはみ出さない */
+    transition: 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.25);
+}
+
+/* エラーメッセージ */
+.form__error {
+    color: var(--color-error);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* エラー時の入力欄 */
+.input--error,
+.input--error:focus {
+    border-color: var(--color-error-border);
+    background-color: var(--color-error-bg);
+    box-shadow: 0 0 0 1px rgba(197, 61, 61, 0.15);
+}
+
+/* ---------- ボタン ---------- */
+.btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-family: var(--font-ui);
+}
+
+.btn--big {
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-size: 1.05rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    box-shadow: var(--shadow-soft-strong, 0 8px 18px rgba(0, 0, 0, 0.15));
+}
+
+.btn--big:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+}
+
+/* ---------- リンク ---------- */
+.link {
+    display: block;
+    text-align: center;
+    margin-top: 1.4rem;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- ヘルプテキスト（パスワードリセット / お問い合わせ案内） ---------- */
+.auth-help-block {
+    margin-top: 1rem;
+}
+
+.auth-help-text {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+/* ---------- タブレット ---------- */
+/* --------------------------------
+   タブレット（〜767px）
+-------------------------------- */
+@media (max-width: 767px) {
+    .authentication-container {
+        padding: 2.2rem 1.6rem;
+    }
+
+    .page__title {
+        font-size: 1.75rem;
+    }
+
+    .input {
+        font-size: 0.95rem;
+        padding: 0.8rem 0.9rem;
+    }
+}
+
+/* --------------------------------
+   iPhone SE / 小型スマホ（〜375px）
+-------------------------------- */
+@media (max-width: 375px) {
+    .authentication-container {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .page__title {
+        font-size: 1.5rem;
+    }
+
+    .input {
+        font-size: 0.88rem;
+        padding: 0.7rem 0.75rem;
+    }
+
+    .btn--big {
+        font-size: 0.95rem;
+        padding: 0.85rem 1.1rem;
+    }
+}

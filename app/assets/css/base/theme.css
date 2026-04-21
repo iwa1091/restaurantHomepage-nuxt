@@ -1,0 +1,3 @@
+/* Theme — ブランドトークン + 構造トークンを統合 */
+@import "../theme/_brand.css";
+@import "../theme/_tokens.css";

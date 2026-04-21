@@ -1,0 +1,220 @@
+/* 管理画面ストア：商品詳細 */
+.all-contents {
+    max-width: 56.25rem;
+    margin: 2.5rem auto;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.top-contents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.left-content {
+    flex: 1;
+    min-width: 18.75rem;
+}
+
+.img-content {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-base);
+    background-color: var(--color-bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reader_image,
+.img-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-base);
+    max-height: 25rem;
+}
+
+.right-content {
+    flex: 1;
+    min-width: 18.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.name-label,
+.price-label,
+.image-label,
+.description-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-default);
+    margin-top: 0.5rem;
+}
+
+.text,
+.product-description,
+.image {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-base);
+    font-size: 1rem;
+    color: var(--text-default);
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.text:focus,
+.product-description:focus,
+.image:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.input_error {
+    color: var(--text-default);
+    font-size: 0.875rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.under-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.button-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.back {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-bg-soft);
+    color: var(--text-default);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.back:hover {
+    opacity: 0.9;
+}
+
+.button-change {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.button-change:hover {
+    opacity: 0.9;
+}
+
+.trash-can-content {
+    display: flex;
+    align-items: center;
+}
+
+.trash-can-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.img-trash-can {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.2s;
+}
+
+.img-trash-can:hover {
+    transform: scale(1.1);
+}
+
+.span-item {
+    color: var(--text-muted);
+}
+
+/* --------------------------------
+   スマホ（〜767px）
+-------------------------------- */
+@media (max-width: 767px) {
+    .all-contents {
+        margin: 1.25rem auto;
+        padding: 1rem;
+    }
+
+    .top-contents {
+        flex-direction: column;
+    }
+
+    .left-content,
+    .right-content {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .button-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .back,
+    .button-change {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --------------------------------
+   iPhone SE / 小型スマホ（〜375px）
+-------------------------------- */
+@media (max-width: 375px) {
+    .all-contents {
+        padding: 0.75rem;
+    }
+
+    .name-label,
+    .price-label,
+    .image-label,
+    .description-label {
+        font-size: 0.85rem;
+    }
+
+    .text,
+    .product-description,
+    .image {
+        font-size: 0.82rem;
+    }
+
+    .img-content img,
+    .reader_image {
+        max-height: 11.25rem;
+    }
+}

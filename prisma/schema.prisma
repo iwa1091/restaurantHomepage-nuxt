@@ -1,0 +1,114 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id              Int           @id @default(autoincrement())
+  name            String
+  email           String        @unique
+  password        String
+  role            String        @default("user")
+  emailVerifiedAt DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  reservations    Reservation[]
+}
+
+model Service {
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String?
+  price        Int?
+  duration     Int?
+  isActive     Boolean       @default(true)
+  categoryId   Int?
+  category     Category?     @relation(fields: [categoryId], references: [id])
+  reservations Reservation[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  services  Service[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Reservation {
+  id              Int       @id @default(autoincrement())
+  userId          Int?
+  user            User?     @relation(fields: [userId], references: [id])
+  serviceId       Int?
+  service         Service?  @relation(fields: [serviceId], references: [id])
+  name            String
+  email           String
+  phone           String?
+  date            DateTime
+  startTime       String
+  endTime         String
+  status          String    @default("pending")
+  notes           String?
+  reservationCode String?
+  cancelReason    String?
+  partySize       Int?
+  seatType        String?
+  tableId         Int?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  price       Int
+  stock       Int      @default(0)
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Schedule {
+  id        Int       @id @default(autoincrement())
+  dayOfWeek Int?
+  date      DateTime?
+  isOpen    Boolean   @default(true)
+  openTime  String?
+  closeTime String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model AdminBlock {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  startTime String
+  endTime   String
+  reason    String?
+  partySize Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BanquetInquiry {
+  id                    Int       @id @default(autoincrement())
+  name                  String
+  email                 String
+  phone                 String?
+  date                  DateTime?
+  partySize             Int?
+  budget                String?
+  message               String?
+  status                String    @default("pending")
+  stripePaymentIntentId String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}

@@ -1,0 +1,37 @@
+/* ==============================================
+   Brand Tokens — いづ浦（すし割烹）用カラーパレット
+============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@400;600&family=Raleway:wght@400;500;600&display=swap');
+
+:root {
+    /* === フォント === */
+    --font-base: 'Noto Serif JP', serif;
+    --font-heading: 'Shippori Mincho', serif;
+    --font-ui: 'Raleway', sans-serif;
+
+    /* === ブランドカラー（3色構成） === */
+    /* 1. 濃紺 — 九十九里の海・格式 */
+    --color-primary: #1B2838;
+    /* 2. 金 — 高級感・老舗の風格 */
+    --color-accent: #C6A355;
+    --color-accent-soft: #E0D4A8;
+    --color-sub-accent: #D4C89C;
+
+    /* === テキスト === */
+    --text-default: #2A2520;
+
+    /* === 背景（温かみのあるクリーム） === */
+    --color-bg-base: #FAF6EF;
+    --color-bg-light: #FDF9F3;
+    --color-bg-soft: #F5EDE0;
+
+    /* === RGB値（透過バリエーション用） === */
+    --color-accent-rgb: 198, 163, 85;
+    --color-bg-base-rgb: 250, 246, 239;
+
+    /* === エラー === */
+    --color-error: #c53d3d;
+    --color-error-bg: #fef2f2;
+    --color-error-border: #f0c0c0;
+}
