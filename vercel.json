@@ -1,4 +1,3 @@
 {
-  "buildCommand": "npx prisma generate && nuxt build",
-  "regions": ["nrt1"]
+  "buildCommand": "npx prisma generate && nuxt build"
 }
